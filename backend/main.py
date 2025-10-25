@@ -1,4 +1,5 @@
 from fastapi import FastAPI, UploadFile, File , Request
+from fastapi.middleware.cors import CORSMiddleware
 from PyPDF2 import PdfReader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import ChatGoogleGenerativeAI , GoogleGenerativeAIEmbeddings
@@ -10,6 +11,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI()
+
+# Add CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],  # Frontend URLs
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 class QuestionRequest(BaseModel):
     question:str
 
@@ -46,6 +56,8 @@ async def upload_pdf(file: UploadFile = File(...)):
     vector_db = FAISS.from_documents(texts , embeddings)
 
     retrieval = vector_db.as_retriever(search_type = "similarity" , search_kwargs = {"k":2})
+    
+    return {"message": "PDF processed successfully", "total_chunks": len(texts)}
 
 @app.post("/ask")
 async def ask(data:QuestionRequest):
