@@ -22,7 +22,7 @@ Upload a document (e.g., a PDF or text), and the app lets you ask natural langua
 |-------|-------------|
 | Backend | FastAPI |
 | LLM | Google Gemini (ChatGoogleGenerativeAI) |
-| Embeddings | Gemini / HuggingFace / OpenAI |
+| Embeddings | Gemini  |
 | Vector Store | FAISS |
 | Framework | LangChain |
 | Frontend (optional) | React (for upload + chat UI) |
