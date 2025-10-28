@@ -8,6 +8,8 @@ from langchain_core.prompts import PromptTemplate
 from pydantic import BaseModel
 import io
 from dotenv import load_dotenv
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
 load_dotenv()
 
 app = FastAPI()
@@ -52,7 +54,8 @@ async def upload_pdf(file: UploadFile = File(...)):
     texts = splitter.create_documents([text])
 
     # return {"message": "PDF processed successfully", "text_preview": texts[0].page_content[:300] , "total_chunks": len(texts)}
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    # embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001")
+    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
     vector_db = FAISS.from_documents(texts , embeddings)
 
     retrieval = vector_db.as_retriever(search_type = "similarity" , search_kwargs = {"k":2})
