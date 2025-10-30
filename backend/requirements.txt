@@ -5,6 +5,10 @@ langchain-core
 # OpenAI Integration
 langchain-openai
 openai
+fastapi
+uvicorn
+python-multipart
+
 
 # Anthropic Integration
 langchain-anthropic
