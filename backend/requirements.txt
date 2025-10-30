@@ -1,35 +1,26 @@
-# --- Web Framework ---
-fastapi
-uvicorn
-python-multipart
+# LangChain Core
+langchain
+langchain-core
 
-# --- LangChain Core (use compatible versions) ---
-langchain==0.2.16
-langchain-core==0.2.38
-langchain-community==0.2.11
-langchain-text-splitters==0.2.2
-
-# --- Integrations ---
-langchain-openai==0.1.17
-langchain-anthropic==0.1.19
-langchain-google-genai==0.1.6
-langchain-huggingface==0.1.0
-
-# --- AI SDKs ---
+# OpenAI Integration
+langchain-openai
 openai
+
+# Anthropic Integration
+langchain-anthropic
+
+# Google Gemini Integration
+langchain-google-genai
 google-generativeai
+
+# Hugging Face Integration
+langchain-huggingface
 transformers
 huggingface-hub
-sentence-transformers
 
-# --- PDF Handling ---
-PyPDF2
-
-# --- Vector Store ---
-faiss-cpu
-
-# --- Utilities ---
-pydantic
+# Environment Management
 python-dotenv
+
+# Machine Learning
 numpy
 scikit-learn
