@@ -1,26 +1,35 @@
-# LangChain Core
+# --- Web Framework ---
+fastapi
+uvicorn
+python-multipart   # required for handling file uploads in FastAPI
+
+# --- LangChain Core ---
 langchain
 langchain-core
+langchain-community
+langchain-text-splitters
 
-# OpenAI Integration
+# --- Integrations ---
 langchain-openai
-openai
-
-# Anthropic Integration
 langchain-anthropic
-
-# Google Gemini Integration
 langchain-google-genai
-google-generativeai
-
-# Hugging Face Integration
 langchain-huggingface
+
+# --- AI SDKs ---
+openai
+google-generativeai
 transformers
 huggingface-hub
+sentence-transformers
 
-# Environment Management
+# --- PDF Handling ---
+PyPDF2
+
+# --- Vector Store ---
+faiss-cpu
+
+# --- Utilities ---
+pydantic
 python-dotenv
-
-# Machine Learning
 numpy
 scikit-learn
